@@ -7,10 +7,10 @@
  Bikeshare project 
 
 ### Description
-This project consisted in using Git and GitHub with a simulated workflow to refactor Project 2 
+ This project consisted in using Git and GitHub with a simulated workflow to refactor Project 2 
 
 ### Files used
-Include the files used
+ The Project Submission consisted in the filling of a template with all the Git commands used to perform the requested tasks
 
 ### Credits
 It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
