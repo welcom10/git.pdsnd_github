@@ -16,14 +16,14 @@ def get_filters():
         (str) month - name of the month to filter by, or "all" to apply no month filter
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
-    print('Hello! Let\'s explore some US bikeshare data!')   
+    print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
         city = input('choose a name city from (chicago ,new york city , or washington:)').lower()
         if city not in CITY_DATA:
             print('\n please choose a correct city name \n')
         else:
-            break          
+            break
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
       month = input("\nEnter a month from( January, February, March, April, May, June ,all)\n")
@@ -34,7 +34,7 @@ def get_filters():
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
-      day = input("\nEnter a month from(Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday ,all \n")
+      day = input("\nEnter a day from(Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday ,all \n")
       if day not in ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'all'):
         print("\n please choose a correct day name \n'.")
       else:
@@ -64,7 +64,7 @@ def load_data(city, month, day):
     # extract month, day of week and Hour from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
-    
+
 
     # filter by month if applicable
     if month != 'all':
@@ -78,12 +78,12 @@ def load_data(city, month, day):
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
-        
+
     return df
 
- #view raw data to user     
-        
-def time_stats(df):   
+ #view raw data to user
+
+def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
@@ -92,20 +92,20 @@ def time_stats(df):
     # TO DO: display the most common month
     common_month = df['month'].mode()[0]
     print('Most common month:',common_month)
-    
+
     # TO DO: display the most common day of week
     common_day = df['day_of_week'].mode()[0]
     print('Most Common day:', common_day)
-     
+
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     common_hour = df['hour'].mode()[0]
-    print('Most Common start Hour:', common_hour) 
-    
+    print('Most Common start Hour:', common_hour)
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-    
+
+
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
 
@@ -127,8 +127,8 @@ def station_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-    
+
+
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
 
@@ -143,8 +143,8 @@ def trip_duration_stats(df):
     print('Mean travel time:', Mean_Time)
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
-    
+
+
 def user_stats(df):
     """Displays statistics on bikeshare users."""
 
@@ -168,37 +168,37 @@ def user_stats(df):
       print('\nMost Recent Year:', Recent_Year)
       common_year =int(df['Birth Year'].mode()[0])
       print('\ncommon year Year :\n ', common_year)
-    
-      print("\nThis took %s seconds." % (time.time() - start_time)) 
+
+      print("\nThis took %s seconds." % (time.time() - start_time))
       print('-'*40)
-    
+
 def display_row_data(df):
         row=0
         while True:
          view_row = input("Would you like to display the first 5 rows of data? yes/no :").lower()
-       
+
          if view_row == "yes":
-            print(df.iloc[row : row + 6])    
-            row+=6        
+            print(df.iloc[row : row + 6])
+            row+=6
          elif view_row =='no':
             break
         else:
-            answer = input("Would you like to display next the first 5 rows of data? yes/no :").lower()  
-            
+            answer = input("Would you like to display next the first 5 rows of data? yes/no :").lower()
+
 def main():
     while True:
-        city,month,day = get_filters()      
+        city,month,day = get_filters()
         df = load_data(city,month,day)
-        
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
         display_row_data(df)
- 
+
         restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
         if restart.lower() != 'yes':
             break
-            
+
 if __name__ == "__main__":
 	 main()
