@@ -7,7 +7,7 @@
  Bikeshare project 
 
 ### Description
-Describe what your project is about and what it does
+This project consisted in using Git and GitHub with a simulated workflow to refactor Project 2 
 
 ### Files used
 Include the files used
