@@ -13,5 +13,5 @@
  The Project Submission consisted in the filling of a template with all the Git commands used to perform the requested tasks
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+Thank to Udacity for creating  this  project  !
 
